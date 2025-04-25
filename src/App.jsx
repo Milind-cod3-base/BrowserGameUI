@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Button } from './components';
 import SingleComponents from './layouts/examples/SingleComponents';
 import MapExample from './layouts/examples/Map';
+import Stats from './layouts/examples/Stats';
 
 const App = () => (
   <Router>
@@ -14,6 +15,7 @@ const App = () => (
       </div>
       <Route exact path="/" component={SingleComponents} />
       <Route path="/map-example" component={MapExample} />
+	  <Route path="/stats" component={Stats} />
       {/* TODO: Add a Route for "/stats" and create a corresponding Stats component */}
     </div>
   </Router>
