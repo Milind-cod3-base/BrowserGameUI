@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Modal, CircleMenu } from '../../components';
 import castleImg from '../../data/pictures/castle.png';
-import backgroundImg from '../../data/pictures/background.jpg'; // Import the background image
+import backgroundImg from '../../data/pictures/background.jpg';
 
 export default class SingleComponents extends React.Component {
   constructor() {
@@ -54,28 +54,36 @@ export default class SingleComponents extends React.Component {
         alignItems: 'center', 
         minHeight: '100vh', 
         textAlign: 'center',
-        marginTop: '190px',
-        backgroundImage: `url(${backgroundImg})`, // Set the background image
-        backgroundSize: 'cover', // Scale the image to cover the entire area
-        backgroundPosition: 'center', // Center the image
-        backgroundRepeat: 'no-repeat', // Prevent the image from repeating
-        paddingTop: '60px' // Add padding to create a buffer below the navigation bar
+        paddingTop: '60px' // Ensure content starts below the navigation bar
       }}>
-        <div style={{ 
-          backgroundColor: '#7A5C5C', 
-          padding: '20px', 
-          borderRadius: '10px', 
-          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)' 
+        <div style={{
+          width: '100%',
+          minHeight: 'calc(100vh - 60px)', // Subtract the navigation bar height
+          backgroundImage: `url(${backgroundImg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center top',
+          backgroundRepeat: 'no-repeat',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          paddingTop: '190px' // Push the brown pad down to its original position
         }}>
-          <h1 style={{ fontSize: '48px', color: '#FFD700', textShadow: '2px 2px #000' }}>
-            Quest of the Ancients
-          </h1>
-          <Button
-            onClick={this.toggleCircleMenu}
-            style={{ fontSize: '24px', padding: '10px 20px', margin: '20px', backgroundColor: '#8B4513', color: '#FFF' }}
-          >
-            Play
-          </Button>
+          <div style={{ 
+            backgroundColor: '#7A5C5C', 
+            padding: '20px', 
+            borderRadius: '10px', 
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)' 
+          }}>
+            <h1 style={{ fontSize: '48px', color: '#FFD700', textShadow: '2px 2px #000' }}>
+              Quest of the Ancients
+            </h1>
+            <Button
+              onClick={this.toggleCircleMenu}
+              style={{ fontSize: '24px', padding: '10px 20px', margin: '20px', backgroundColor: '#8B4513', color: '#FFF' }}
+            >
+              Play
+            </Button>
+          </div>
         </div>
         {isCircleMenu && (
           <CircleMenu
