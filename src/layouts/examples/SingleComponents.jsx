@@ -35,7 +35,14 @@ export default class SingleComponents extends React.Component {
     const { isCircleMenu, circleMenuPosition, isSettingsModal, isCreditsModal } = this.state;
 
     return (
-      <div style={{ textAlign: 'center', margin: '50px auto', maxWidth: '800px' }}>
+      <div style={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        alignItems: 'center', 
+        minHeight: '100vh', 
+        textAlign: 'center',
+        marginTop: '190px' // Adjust this value to change the vertical height of the title and menu button. Smaller values (e.g., 50px) move them higher; larger values (e.g., 200px) move them lower.
+      }}>
         <h1 style={{ fontSize: '48px', color: '#FFD700', textShadow: '2px 2px #000' }}>
           Quest of the Ancients
         </h1>
@@ -43,7 +50,7 @@ export default class SingleComponents extends React.Component {
           onClick={this.toggleCircleMenu}
           style={{ fontSize: '24px', padding: '10px 20px', margin: '20px', backgroundColor: '#8B4513', color: '#FFF' }}
         >
-          Open Menu
+          Menu
         </Button>
         {isCircleMenu && (
           <CircleMenu
