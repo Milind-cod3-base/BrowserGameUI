@@ -2,9 +2,7 @@
 
 A demo game UI built with React.
 
-## Demo Video 📺
-
-<video src="https://github.com/Milind-cod3-base/BrowserGameUI/raw/master/resources/video/demo.mkv" controls width="600"></video>
+# Download the ![Demo Video](https://github.com/Milind-cod3-base/BrowserGameUI/raw/master/resources/video/demo.mkv)
 
 ## Build 🛠️
 
