@@ -14,7 +14,7 @@ const updateValueAnimation = keyframes`
 `;
 
 const Wrapper = styled.div`
-  width: 150px;
+  width: 300px;
 `;
 
 const ValueWrapper = styled.div`
@@ -22,6 +22,7 @@ const ValueWrapper = styled.div`
   justify-content: space-between;
   padding: 3px 5px;
   position: relative;
+  text-align: left;
 `;
 
 const DifferenceAnimation = styled.span`
@@ -37,7 +38,7 @@ const BarWrapper = styled.div`
 `;
 
 const Bar = styled.div`
-  background: #81aa42;
+  background: ${props => props.barColor || '#81aa42'};
   height: 10px;
   border-radius: 25px;
   width: ${props => `${props.barLength * 100}%`};
@@ -47,11 +48,9 @@ const Bar = styled.div`
 export default class ProgressBar extends React.Component {
   constructor() {
     super();
-
     this.state = {
       differenceOfValue: null,
     };
-
     this.handleAnimationEnd = this.handleAnimationEnd.bind(this);
   }
 
@@ -66,7 +65,7 @@ export default class ProgressBar extends React.Component {
   }
 
   render() {
-    const { resource, value, maxValue } = this.props;
+    const { resource, value, maxValue, barColor } = this.props;
     const { differenceOfValue } = this.state;
 
     return (
@@ -83,7 +82,7 @@ export default class ProgressBar extends React.Component {
           }
         </ValueWrapper>
         <BarWrapper>
-          <Bar barLength={value / maxValue} />
+          <Bar barLength={value / maxValue} barColor={barColor} />
         </BarWrapper>
       </Wrapper>
     );
@@ -92,10 +91,12 @@ export default class ProgressBar extends React.Component {
 
 Bar.propTypes = {
   barLength: PropTypes.number.isRequired,
+  barColor: PropTypes.string,
 };
 
 ProgressBar.propTypes = {
   resource: PropTypes.string.isRequired,
   value: PropTypes.number.isRequired,
   maxValue: PropTypes.number.isRequired,
+  barColor: PropTypes.string,
 };
