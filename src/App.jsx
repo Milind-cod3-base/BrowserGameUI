@@ -7,7 +7,7 @@ import MapExample from './layouts/examples/Map';
 const App = () => (
   <Router>
     <div>
-      <div style={{ display: 'flex', gap: '15px', padding: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)' }}>
+      <div style={{ display: 'flex', gap: '15px', padding: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', backgroundColor: 'rgba(255, 215, 0, 0.2)' }}>
         <Link to="/"><Button>Home</Button></Link>
         <Link to="/map-example"><Button>Map</Button></Link>
       </div>

@@ -10,10 +10,14 @@ export default class SingleComponents extends React.Component {
       circleMenuPosition: { x: 0, y: 0 },
       isSettingsModal: false,
       isCreditsModal: false,
+      isStartGameModal: false, // Added state for Start Game modal
+      isLoadGameModal: false,  // Added state for Load Game modal
     };
     this.toggleCircleMenu = this.toggleCircleMenu.bind(this);
     this.toggleSettingsModal = this.toggleSettingsModal.bind(this);
     this.toggleCreditsModal = this.toggleCreditsModal.bind(this);
+    this.toggleStartGameModal = this.toggleStartGameModal.bind(this); // Added binding for Start Game modal
+    this.toggleLoadGameModal = this.toggleLoadGameModal.bind(this);   // Added binding for Load Game modal
   }
 
   toggleCircleMenu(event) {
@@ -31,8 +35,16 @@ export default class SingleComponents extends React.Component {
     this.setState({ isCreditsModal: !this.state.isCreditsModal });
   }
 
+  toggleStartGameModal() {
+    this.setState({ isStartGameModal: !this.state.isStartGameModal });
+  }
+
+  toggleLoadGameModal() {
+    this.setState({ isLoadGameModal: !this.state.isLoadGameModal });
+  }
+
   render() {
-    const { isCircleMenu, circleMenuPosition, isSettingsModal, isCreditsModal } = this.state;
+    const { isCircleMenu, circleMenuPosition, isSettingsModal, isCreditsModal, isStartGameModal, isLoadGameModal } = this.state;
 
     return (
       <div style={{ 
@@ -41,7 +53,7 @@ export default class SingleComponents extends React.Component {
         alignItems: 'center', 
         minHeight: '100vh', 
         textAlign: 'center',
-        marginTop: '190px' // Adjust this value to change the vertical height of the title and menu button. Smaller values (e.g., 50px) move them higher; larger values (e.g., 200px) move them lower.
+        marginTop: '190px'
       }}>
         <h1 style={{ fontSize: '48px', color: '#FFD700', textShadow: '2px 2px #000' }}>
           Quest of the Ancients
@@ -55,8 +67,8 @@ export default class SingleComponents extends React.Component {
         {isCircleMenu && (
           <CircleMenu
             menuItems={[
-              { name: 'Start Game', action: () => alert('Embarking on your quest...') },
-              { name: 'Load Game', action: () => alert('Resuming your journey...') },
+              { name: 'Start Game', action: this.toggleStartGameModal },
+              { name: 'Load Game', action: this.toggleLoadGameModal },
               { name: 'Settings', action: this.toggleSettingsModal },
               { name: 'Credits', action: this.toggleCreditsModal },
             ]}
@@ -77,7 +89,23 @@ export default class SingleComponents extends React.Component {
           <Modal
             closeTrigger={this.toggleCreditsModal}
             header="Credits"
-            paragraph="Crafted by the Guild of Code Weavers."
+            paragraph="Crafted by Milind."
+          />
+        )}
+        {isStartGameModal && (
+          <Modal
+            closeTrigger={this.toggleStartGameModal}
+            header="Start Game"
+            paragraph="Embark on a new quest to uncover the secrets of the ancients."
+            style={{ backgroundColor: 'rgba(255, 215, 0, 0.2)' }}
+          />
+        )}
+        {isLoadGameModal && (
+          <Modal
+            closeTrigger={this.toggleLoadGameModal}
+            header="Load Game"
+            paragraph="Continue your journey where you left off."
+            style={{ backgroundColor: 'rgba(255, 215, 0, 0.2)' }}
           />
         )}
       </div>
