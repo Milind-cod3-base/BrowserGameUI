@@ -1,13 +1,30 @@
-# Quest of the Ancient
+# Quest of the Ancient 🎮
 
-![Demo Video](https://github.com/Milind-cod3-base/BrowserGameUI/raw/master/resources/video/demo.mkv)
-A demo game UI build using REACT
+A demo game UI built with React.
 
+## Demo Video 📺
 
-### build
+<video src="https://github.com/Milind-cod3-base/BrowserGameUI/raw/master/resources/video/demo.mkv" controls width="600"></video>
 
-clone the repo 
+## Build 🛠️
 
-npm install (requires Node.js installed already)
+1. Clone:  
+   ```bash
+   git clone https://github.com/Milind-cod3-base/BrowserGameUI.git
+   cd BrowserGameUI
+   ```
+   
+2. Install:
+	```bash
 
-npm run
+	npm install
+	```
+
+3. Run:
+	```bash
+		npm run start
+	```
+## Features 🌟
+	Navigation Bar: Home, Map, Stats.
+	Stats Card: Quests, Achievements, Skills.
+	Circular Menu: Start, Load, Settings, Credits.
