@@ -12,7 +12,7 @@ A demo game UI built with React.
    cd BrowserGameUI
    ```
    
-2. Install:
+2. Install (Need Node.js pre-installed in PC):
 	```bash
 
 	npm install
@@ -20,7 +20,7 @@ A demo game UI built with React.
 
 3. Run:
 	```bash
-		npm run start
+	  npm start
 	```
 ## Features 🌟
 	Navigation Bar: Home, Map, Stats.
