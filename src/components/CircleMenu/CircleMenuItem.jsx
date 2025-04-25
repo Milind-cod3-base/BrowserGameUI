@@ -5,22 +5,22 @@ import styled, { keyframes } from 'styled-components';
 const rotateItems = angle => keyframes`
   0% { top: 0; }
   30% { 
-    top: -70px;
+    top: -105px;
     transform: rotate(0deg); 
   }
   100% {
-    top: -70px;
+    top: -105px;
     transform: rotate(${angle}deg);
   }
 `;
 
 const StyledItem = styled.div`
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   z-index: 100;
-  transform-origin: 30px 100px;
+  transform-origin: 45px 150px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,13 +39,16 @@ const ItemContent = styled.div`
   height: inherit;
   border: solid 2px black;
   border-radius: 50%;
-  line-height: 60px;
+  line-height: 90px;
   background: #fff;
   text-align: center;
   transform: ${props => `rotate(-${props.angle}deg) scale(${props.isSubMenu && props.subMenu ? '1.1, 1.1' : '1, 1'})`};
   cursor: pointer;
-  opacity: ${props => !props.isSubMenu || props.subMenu  ? 1 : 0.5};
+  opacity: ${props => !props.isSubMenu || props.subMenu ? 1 : 0.5};
   transition: opacity 0.5s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   :hover {
     transform: rotate(-${props => props.angle}deg) scale(1.1, 1.1);

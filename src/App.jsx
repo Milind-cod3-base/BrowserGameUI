@@ -9,8 +9,8 @@ import MapExample from './layouts/examples/Map';
 const App = () => (
   <Router>
     <div>
-      <Link to="/" ><Button>Single Components example</Button></Link>
-      <Link to="/map-example" ><Button>Map example</Button></Link>
+      <Link to="/" ><Button>Home</Button></Link>
+      <Link to="/map-example" ><Button>Map</Button></Link>
 
       <Route exact path="/" component={SingleComponents} />
       <Route path="/map-example" component={MapExample} />

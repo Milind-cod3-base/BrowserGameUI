@@ -1,126 +1,78 @@
 import React from 'react';
-import { Button, ProgressBar, Modal, CircleMenu } from '../../components';
-import { circleMenuRandomData1, circleMenuRandomData2 } from '../../data/circleMenuRandomData';
+import { Button, Modal, CircleMenu } from '../../components';
 import castleImg from '../../data/pictures/castle.png';
 
 export default class SingleComponents extends React.Component {
   constructor() {
     super();
     this.state = {
-      value: '',
-      isClicked: false,
-      isModal: false,
-      isCircleMenu1: false,
-      circleMenuPosition1: { x: 0, y: 0 },
-      isCircleMenu2: false,
-      circleMenuPosition2: { x: 0, y: 0 },
-      isNewModal: false, // NEW: Added state variable to track visibility of the new custom modal
+      isCircleMenu: false,
+      circleMenuPosition: { x: 0, y: 0 },
+      isSettingsModal: false,
+      isCreditsModal: false,
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.toggleModal = this.toggleModal.bind(this);
-    this.toggleCircleMenu1 = this.toggleCircleMenu1.bind(this);
-    this.toggleCircleMenu2 = this.toggleCircleMenu2.bind(this);
-    this.toggleNewModal = this.toggleNewModal.bind(this); // NEW: Added binding for the toggleNewModal method to handle the new modal
-    // ORIGINAL: No binding for toggleNewModal existed in the original constructor
+    this.toggleCircleMenu = this.toggleCircleMenu.bind(this);
+    this.toggleSettingsModal = this.toggleSettingsModal.bind(this);
+    this.toggleCreditsModal = this.toggleCreditsModal.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({ value: e.target.value });
-  }
-
-  toggleModal() {
-    this.setState({ isModal: !this.state.isModal });
-  }
-
-  handleClick(e) {
-    this.setState({ isClicked: true });
-    this.toggleModal();
-  }
-
-  toggleCircleMenu1(event) {
+  toggleCircleMenu(event) {
     this.setState({
-      isCircleMenu1: !this.state.isCircleMenu1,
-      circleMenuPosition1: { x: event.clientX, y: event.clientY },
+      isCircleMenu: !this.state.isCircleMenu,
+      circleMenuPosition: { x: event.clientX, y: event.clientY },
     });
   }
 
-  toggleCircleMenu2(event) {
-    this.setState({
-      isCircleMenu2: !this.state.isCircleMenu2,
-      circleMenuPosition2: { x: event.clientX, y: event.clientY },
-    });
+  toggleSettingsModal() {
+    this.setState({ isSettingsModal: !this.state.isSettingsModal });
   }
 
-  // NEW: Added toggleNewModal method to control the visibility of the new custom modal
-  toggleNewModal() {
-    this.setState({ isNewModal: !this.state.isNewModal });
+  toggleCreditsModal() {
+    this.setState({ isCreditsModal: !this.state.isCreditsModal });
   }
-  // ORIGINAL: No toggleNewModal method existed in the original code
 
   render() {
-    const { value, isClicked, isModal, isCircleMenu1, circleMenuPosition1, isCircleMenu2, circleMenuPosition2, isNewModal } = this.state;
+    const { isCircleMenu, circleMenuPosition, isSettingsModal, isCreditsModal } = this.state;
 
     return (
-      <div className="App" style={{ margin: 50 }}>
-        <ProgressBar resource="Gold" value={isClicked ? Number(value) : 0} maxValue={228} />
-        {/* NEW: Wrapped input in a div with marginTop to move it further down the page */}
-        <div style={{ marginTop: '200px' , marginLeft: '200px'}}>
-          <input type="text" onChange={this.handleChange} value={value} />
-        </div>
-        {/* ORIGINAL: Input was directly rendered with inline marginTop
-          <input type="text" onChange={this.handleChange} value={value} style={{ marginTop: 50 }} />
-        */}
-
-        {/* NEW: Edited first button to change text and add styling */}
-        <Button onClick={this.handleClick} style={{ backgroundColor: 'lightblue', padding: '10px' }}>
-          Update Progress & Show Modal
+      <div style={{ textAlign: 'center', margin: '50px auto', maxWidth: '800px' }}>
+        <h1 style={{ fontSize: '48px', color: '#FFD700', textShadow: '2px 2px #000' }}>
+          Quest of the Ancients
+        </h1>
+        <Button
+          onClick={this.toggleCircleMenu}
+          style={{ fontSize: '24px', padding: '10px 20px', margin: '20px', backgroundColor: '#8B4513', color: '#FFF' }}
+        >
+          Open Menu
         </Button>
-        {/* ORIGINAL: First button had different text and no custom styling
-          <Button onClick={this.handleClick}>change Bar value and show Modal</Button>
-        */}
-
-        <Button onClick={this.toggleCircleMenu1}>menu1Trigger</Button>
-        <Button onClick={this.toggleCircleMenu2}>menu2Trigger</Button>
-
-        {/* NEW: Added a new button to trigger the custom modal */}
-        <Button onClick={this.toggleNewModal}>Show Custom Modal</Button>
-        {/* ORIGINAL: No additional button existed in the original code */}
-
-        {isCircleMenu1 ? (
+        {isCircleMenu && (
           <CircleMenu
-            menuItems={circleMenuRandomData1}
-            x={circleMenuPosition1.x}
-            y={circleMenuPosition1.y}
-            closeMenuHandler={this.toggleCircleMenu1}
+            menuItems={[
+              { name: 'Start Game', action: () => alert('Embarking on your quest...') },
+              { name: 'Load Game', action: () => alert('Resuming your journey...') },
+              { name: 'Settings', action: this.toggleSettingsModal },
+              { name: 'Credits', action: this.toggleCreditsModal },
+            ]}
+            x={circleMenuPosition.x}
+            y={circleMenuPosition.y}
+            closeMenuHandler={this.toggleCircleMenu}
             centralImg={castleImg}
           />
-        ) : null}
-        {isCircleMenu2 ? (
-          <CircleMenu
-            menuItems={circleMenuRandomData2}
-            x={circleMenuPosition2.x}
-            y={circleMenuPosition2.y}
-            closeMenuHandler={this.toggleCircleMenu2}
-            centralImg={castleImg}
-          />
-        ) : null}
-        {isModal ? (
+        )}
+        {isSettingsModal && (
           <Modal
-            closeTrigger={this.toggleModal}
-            header="Lorem ipsum dolor sit amet consectetur adipisicing elit."
-            paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta in at enim sed. Facere accusantium impedit dolores quas debitis."
+            closeTrigger={this.toggleSettingsModal}
+            header="Settings"
+            paragraph="Adjust your adventure settings here."
           />
-        ) : null}
-        {/* NEW: Added conditional rendering for the new custom modal */}
-        {isNewModal ? (
+        )}
+        {isCreditsModal && (
           <Modal
-            closeTrigger={this.toggleNewModal}
-            header="Welcome to the Custom Modal!"
-            paragraph="This is a brand new modal you just added."
+            closeTrigger={this.toggleCreditsModal}
+            header="Credits"
+            paragraph="Crafted by the Guild of Code Weavers."
           />
-        ) : null}
-        {/* ORIGINAL: No new modal rendering existed in the original code */}
+        )}
       </div>
     );
   }
