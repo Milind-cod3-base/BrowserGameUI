@@ -1,6 +1,6 @@
 import React from 'react';
 import ProgressBar from '../../components/ProgressBar';
-import statsBackgroundImg from '../../data/pictures/background.jpg'; // Import the background image
+import statsBackgroundImg from '../../data/pictures/backgroundstats.jpg'; // Import the background image
 
 const Stats = () => (
   <div style={{ 
@@ -23,7 +23,7 @@ const Stats = () => (
       paddingTop: '100px' // Adjust the stats card position (matches the original marginTop)
     }}>
       <div style={{ 
-        backgroundColor: '#7A5C5C', 
+        backgroundColor: '#1A3C34', 
         padding: '30px', 
         borderRadius: '10px', 
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', 

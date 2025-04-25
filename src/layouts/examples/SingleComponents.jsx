@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Modal, CircleMenu } from '../../components';
 import castleImg from '../../data/pictures/castle.png';
-import backgroundImg from '../../data/pictures/background.jpg';
+import backgroundImg from '../../data/pictures/backgroundstats.jpg';
 
 export default class SingleComponents extends React.Component {
   constructor() {
@@ -69,7 +69,7 @@ export default class SingleComponents extends React.Component {
           paddingTop: '190px' // Push the brown pad down to its original position
         }}>
           <div style={{ 
-            backgroundColor: '#7A5C5C', 
+            backgroundColor: '#1A3C34', 
             padding: '20px', 
             borderRadius: '10px', 
             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)' 
