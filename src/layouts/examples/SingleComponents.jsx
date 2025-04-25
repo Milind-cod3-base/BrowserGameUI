@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Modal, CircleMenu } from '../../components';
 import castleImg from '../../data/pictures/castle.png';
+import backgroundImg from '../../data/pictures/background.jpg'; // Import the background image
 
 export default class SingleComponents extends React.Component {
   constructor() {
@@ -53,10 +54,15 @@ export default class SingleComponents extends React.Component {
         alignItems: 'center', 
         minHeight: '100vh', 
         textAlign: 'center',
-        marginTop: '190px'
+        marginTop: '190px',
+        backgroundImage: `url(${backgroundImg})`, // Set the background image
+        backgroundSize: 'cover', // Scale the image to cover the entire area
+        backgroundPosition: 'center', // Center the image
+        backgroundRepeat: 'no-repeat', // Prevent the image from repeating
+        paddingTop: '60px' // Add padding to create a buffer below the navigation bar
       }}>
         <div style={{ 
-          backgroundColor: '#7A5C5C   ', // Change this color to adjust the background. Suggested alternatives: #2E1A47 (deep purple), #3C2F2F (dark brown)
+          backgroundColor: '#7A5C5C', 
           padding: '20px', 
           borderRadius: '10px', 
           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)' 

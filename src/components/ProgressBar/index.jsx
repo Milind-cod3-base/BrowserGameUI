@@ -14,7 +14,7 @@ const updateValueAnimation = keyframes`
 `;
 
 const Wrapper = styled.div`
-  width: 300px;
+  width: 350px;
 `;
 
 const ValueWrapper = styled.div`
@@ -23,6 +23,8 @@ const ValueWrapper = styled.div`
   padding: 3px 5px;
   position: relative;
   text-align: left;
+  font-size: 18px;
+  font-weight: bold;
 `;
 
 const DifferenceAnimation = styled.span`
