@@ -1,14 +1,22 @@
 # Quest of the Ancient 🎮
 
-A demo game UI built with React.
+A demo browser game UI built with React.
 
 # Download the ![Demo Video](https://github.com/Milind-cod3-base/BrowserGameUI/raw/master/resources/video/demo.mkv)
 
 ## Screenshots
 
-1. Home page:
+1. Home page
 	![home](resources/images/home1.png)
 
+2. Circular Play Menu
+	![home2](resources/images/home2.png)
+
+3. Map page
+	![map](resources/images/map.png)
+	
+4. Stats page
+	![map](resources/images/stats.png)
 
 ## Build 🛠️
 
