@@ -23,7 +23,6 @@ const CircleWrapper = styled.div`
   height: ${menuSize}px;
   display: flex;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-
   animation: ${props => `${props.animation} ${props.animationDuration}s backwards`};
 `;
 
@@ -40,7 +39,7 @@ const CircleMenuWrapper = ({ children, id, x, y, isMenuClosing, onAnimationEnd }
     x={x}
     y={y}
     animation={isMenuClosing ? menuAnimationClose : menuAnimationOpen}
-    animationDuration={isMenuClosing ? 0.2 : 0.5}
+    animationDuration={isMenuClosing ? 0.9 : 1.5} /* CHANGED: Increased from 0.2s to 0.6s (close) and 0.5s to 1.0s (open) */
     onAnimationEnd={onAnimationEnd}
   >
     {children}

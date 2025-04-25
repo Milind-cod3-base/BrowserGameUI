@@ -25,8 +25,8 @@ const StyledItem = styled.div`
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  background: #fff;
-  animation: ${props => `${rotateItems(props.angle)} 0.7s forwards`};
+  background: #FFFFE0; /* CHANGED: Set to light yellow */
+  animation: ${props => `${rotateItems(props.angle)} 1.2s forwards`}; /* CHANGED: Increased duration from 0.7s to 1.2s */
 `;
 
 StyledItem.propTypes = {
@@ -40,7 +40,7 @@ const ItemContent = styled.div`
   border: solid 2px black;
   border-radius: 50%;
   line-height: 90px;
-  background: #fff;
+  background: #FFFFE0; /* CHANGED: Set to light yellow */
   text-align: center;
   transform: ${props => `rotate(-${props.angle}deg) scale(${props.isSubMenu && props.subMenu ? '1.1, 1.1' : '1, 1'})`};
   cursor: pointer;

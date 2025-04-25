@@ -22,7 +22,7 @@ const closeIconAnimation = direction => keyframes`
 const StyledCentralButton = styled.div`
   border: solid 2px black;
   border-radius: 50%;
-  background: #fff;
+  background: #FFFFE0; /* CHANGED: Set to light yellow */
   width: ${centralButtonSize}px;
   cursor: pointer;
   display: flex;

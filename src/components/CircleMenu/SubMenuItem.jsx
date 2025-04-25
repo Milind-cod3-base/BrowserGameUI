@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
 
 const subMenuAnimation = angle => keyframes`
-    0% { top: 0; }
+  0% { top: 0; }
   30% { 
     top: -65px;
     transform: rotate(0deg); 
@@ -25,7 +25,8 @@ const StyledSubMenuItem = styled.div`
   align-items: center;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   transform-origin: 30px 160px;
-  animation: ${props => subMenuAnimation(props.angle)} 0.3s forwards;
+  background: #FFFFE0; /* CHANGED: Set to light yellow */
+  animation: ${props => subMenuAnimation(props.angle)} 0.8s forwards; /* CHANGED: Increased duration from 0.3s to 0.8s */
 `;
 
 StyledSubMenuItem.propTypes = {
@@ -39,7 +40,7 @@ const SubItemContent = styled.div`
   border: solid 2px black;
   border-radius: 50%;
   line-height: 60px;
-  background: #fff;
+  background: #FFFFE0; /* CHANGED: Set to light yellow */
   text-align: center;
   cursor: pointer;
   transform: scale(0.9, 0.9) rotate(${props => props.angle}deg);
