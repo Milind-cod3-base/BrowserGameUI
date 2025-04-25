@@ -111,7 +111,7 @@ export default class SingleComponents extends React.Component {
           <Modal
             closeTrigger={this.toggleCreditsModal}
             header="Credits"
-            paragraph="Crafted by the Guild of Code Weavers."
+            paragraph="Crafted by Milind."
             style={{ backgroundColor: 'rgba(255, 215, 0, 0.2)' }}
           />
         )}
