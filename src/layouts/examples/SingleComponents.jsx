@@ -10,14 +10,14 @@ export default class SingleComponents extends React.Component {
       circleMenuPosition: { x: 0, y: 0 },
       isSettingsModal: false,
       isCreditsModal: false,
-      isStartGameModal: false, // Added state for Start Game modal
-      isLoadGameModal: false,  // Added state for Load Game modal
+      isStartGameModal: false,
+      isLoadGameModal: false,
     };
     this.toggleCircleMenu = this.toggleCircleMenu.bind(this);
     this.toggleSettingsModal = this.toggleSettingsModal.bind(this);
     this.toggleCreditsModal = this.toggleCreditsModal.bind(this);
-    this.toggleStartGameModal = this.toggleStartGameModal.bind(this); // Added binding for Start Game modal
-    this.toggleLoadGameModal = this.toggleLoadGameModal.bind(this);   // Added binding for Load Game modal
+    this.toggleStartGameModal = this.toggleStartGameModal.bind(this);
+    this.toggleLoadGameModal = this.toggleLoadGameModal.bind(this);
   }
 
   toggleCircleMenu(event) {
@@ -55,15 +55,22 @@ export default class SingleComponents extends React.Component {
         textAlign: 'center',
         marginTop: '190px'
       }}>
-        <h1 style={{ fontSize: '48px', color: '#FFD700', textShadow: '2px 2px #000' }}>
-          Quest of the Ancients
-        </h1>
-        <Button
-          onClick={this.toggleCircleMenu}
-          style={{ fontSize: '24px', padding: '10px 20px', margin: '20px', backgroundColor: '#8B4513', color: '#FFF' }}
-        >
-          Menu
-        </Button>
+        <div style={{ 
+          backgroundColor: '#7A5C5C   ', // Change this color to adjust the background. Suggested alternatives: #2E1A47 (deep purple), #3C2F2F (dark brown)
+          padding: '20px', 
+          borderRadius: '10px', 
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)' 
+        }}>
+          <h1 style={{ fontSize: '48px', color: '#FFD700', textShadow: '2px 2px #000' }}>
+            Quest of the Ancients
+          </h1>
+          <Button
+            onClick={this.toggleCircleMenu}
+            style={{ fontSize: '24px', padding: '10px 20px', margin: '20px', backgroundColor: '#8B4513', color: '#FFF' }}
+          >
+            Play
+          </Button>
+        </div>
         {isCircleMenu && (
           <CircleMenu
             menuItems={[
@@ -83,13 +90,15 @@ export default class SingleComponents extends React.Component {
             closeTrigger={this.toggleSettingsModal}
             header="Settings"
             paragraph="Adjust your adventure settings here."
+            style={{ backgroundColor: 'rgba(255, 215, 0, 0.2)' }}
           />
         )}
         {isCreditsModal && (
           <Modal
             closeTrigger={this.toggleCreditsModal}
             header="Credits"
-            paragraph="Crafted by Milind."
+            paragraph="Crafted by the Guild of Code Weavers."
+            style={{ backgroundColor: 'rgba(255, 215, 0, 0.2)' }}
           />
         )}
         {isStartGameModal && (
